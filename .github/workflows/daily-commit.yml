@@ -19,6 +19,7 @@ jobs:
         run: |
           git config --global user.name "DevSync Bot"
           git config --global user.email "24f2004718@ds.study.iitm.ac.in"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git commit --allow-empty -m "chore: daily auto commit"
-          git push
+          git push origin HEAD:main
 
