@@ -1,6 +1,7 @@
 name: Daily Auto Commit
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '30 4 * * *'  # Runs at 10:00 AM IST
 
