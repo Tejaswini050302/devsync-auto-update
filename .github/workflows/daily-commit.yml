@@ -3,7 +3,7 @@ name: Daily Auto Commit
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 4 * * *'  # Runs at 10:00 AM IST
+    - cron: '30 4 * * *'  # 10:00 AM IST
 
 jobs:
   commit-job:
@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Add empty commit - 24f2004718@ds.study.iitm.ac.in
         run: |
@@ -19,3 +21,4 @@ jobs:
           git config --global user.email "24f2004718@ds.study.iitm.ac.in"
           git commit --allow-empty -m "chore: daily auto commit"
           git push
+
